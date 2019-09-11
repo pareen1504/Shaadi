@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+<item android:bottom="@dimen/small_margin"
+    android:innerRadiusRatio="2.5"
+    android:left="@dimen/small_margin"
+    android:right="@dimen/small_margin"
+    android:state_pressed="false"
+    android:top="@dimen/small_margin">
+    <shape android:shape="oval">
+        <solid android:color="#c20037" />
+    </shape>
+</item>
+<item>
+    <shape android:shape="oval">
+        <stroke
+            android:width="2dp"
+            android:color="#5ec394" />
+    </shape>
+</item>
+</layer-list>

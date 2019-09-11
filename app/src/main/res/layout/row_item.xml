@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="recylerListdata"
+            type="com.pd.shaadi.model.database.DbData" />
+
+        <variable
+            name="buttonClicklistener"
+            type="com.pd.shaadi.adapter.ProfileDataAdapter.MatchProfileClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/row_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_margin"
+        android:layout_marginBottom="1dp"
+        android:background="@android:color/white"
+        android:padding="@dimen/padding_big">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profileimage"
+            app:setName="@{recylerListdata}"
+            tools:text="@string/user_name" />
+
+        <ImageView
+            android:id="@+id/profileimage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="@dimen/medium_margin"
+            android:background="@drawable/round_button"
+            android:contentDescription="@string/userimage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setProfileImage="@{recylerListdata}"
+            tools:srcCompat="@drawable/ic_brokenimage_foreground" />
+
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="18dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/roboto"
+            android:textAlignment="center"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            app:setDescription="@{recylerListdata}"
+            tools:text="@string/description" />
+
+        <ImageButton
+            android:id="@+id/accept"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:layout_margin="@dimen/big_margin"
+            android:background="@drawable/round_button"
+            android:contentDescription="@string/accept_button"
+            android:onClick="@{()-> buttonClicklistener.accept(recylerListdata)}"
+            android:src="@drawable/ic_accept_foreground"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description"
+            app:setAcceptButtonVisibility="@{recylerListdata}" />
+
+        <ImageButton
+            android:id="@+id/reject"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:layout_margin="27dp"
+            android:background="@drawable/round_button"
+            android:contentDescription="@string/reject_button"
+            android:onClick="@{()-> buttonClicklistener.reject(recylerListdata)}"
+            android:src="@drawable/ic_reject_foreground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description"
+            app:setRejectButtonVisibility="@{recylerListdata}" />
+
+        <TextView
+            android:id="@+id/accept_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="9dp"
+            android:fontFamily="@font/roboto"
+            android:padding="@dimen/padding_small"
+            android:text="@string/accept"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="@+id/accept"
+            app:layout_constraintStart_toStartOf="@+id/accept"
+            app:layout_constraintTop_toBottomOf="@+id/accept"
+            app:setAcceptTextVisibility="@{recylerListdata}" />
+
+        <TextView
+            android:id="@+id/reject_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="9dp"
+            android:fontFamily="@font/roboto"
+            android:padding="@dimen/padding_small"
+            android:text="@string/reject"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="@+id/reject"
+            app:layout_constraintStart_toStartOf="@+id/reject"
+            app:layout_constraintTop_toBottomOf="@+id/reject"
+            app:setRejectTextVisibility="@{recylerListdata}" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
